@@ -1,13 +1,11 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --foreground: #000000;
+  --default-font-family: "Helvetica";
+  --primary-color: #000000;
+  --duolingo-green-color: #58cc02;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --transition-medium: 10s all ease-in-out;
 }
 
 html,
@@ -19,7 +17,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--default-font-family), serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,6 +26,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-height: 1;
 }
 
 a {
@@ -35,8 +34,4 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+
