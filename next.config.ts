@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/poll/new",
+  //       destination: "/PollNew", // Ajuste conforme o nome real do arquivo da página
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
