@@ -18,4 +18,8 @@ export const Content = styled.section`
   box-shadow: var(--box-shadow);
   padding: var(--padding-4);
   gap: var(--margin-4);
+
+  > h1 {
+    font-size: 24px;
+  }
 `;

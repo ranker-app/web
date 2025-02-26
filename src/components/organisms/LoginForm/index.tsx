@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Container, Content, Form } from "./styles";
+import { Container, Content } from "./styles";
 import Anchor from "@/components/atoms/Anchor";
+import useForm from "@/hooks/useForm";
+import { Form } from "@/styles/Form";
 
 interface Login {
   email: string;
@@ -13,12 +15,7 @@ const LoginForm: React.FC = () => {
     password: "",
   });
 
-  const handleFormFieldChange = (e: any) => {
-    setLogin((previousLogin) => ({
-      ...previousLogin,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const { handleFormFieldChange } = useForm({ setState: setLogin });
 
   const doLogin = () => {
     alert("Gonna login");
@@ -30,7 +27,12 @@ const LoginForm: React.FC = () => {
         <Form>
           <fieldset>
             <label>Email</label>
-            <input type="email" name="email" onChange={handleFormFieldChange} />
+            <input
+              type="email"
+              name="email"
+              onChange={handleFormFieldChange}
+              value={login.email}
+            />
           </fieldset>
 
           <fieldset>
@@ -39,6 +41,7 @@ const LoginForm: React.FC = () => {
               type="password"
               name="password"
               onChange={handleFormFieldChange}
+              value={login.password}
             />
           </fieldset>
 
@@ -46,7 +49,7 @@ const LoginForm: React.FC = () => {
             Login
           </button>
         </Form>
-        <Anchor href="/signup">Already have an account ? Sign Up</Anchor>
+        <Anchor href="/signup">Create an account</Anchor>
       </Content>
     </Container>
   );
