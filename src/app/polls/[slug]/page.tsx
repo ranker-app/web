@@ -1,6 +1,6 @@
 "use client";
 
-import FullPoll from "@/components/organisms/FullPoll";
+import FullPoll from "@/components/organisms/Polls/FullPoll";
 import DefaultTemplate from "@/components/templates/DefaultTemplate";
 
 const PostPage = () => {

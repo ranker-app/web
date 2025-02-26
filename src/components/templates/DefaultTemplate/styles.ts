@@ -5,16 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 32px;
 
   > section {
     width: 100%;
     min-height: 60vh;
-    padding: 32px 0;
-  }
-
-  > * {
-    /* max-width: 1024px; */
-    max-width: 796px;
+    padding: 32px;
+    max-width: 860px;
   }
 `;

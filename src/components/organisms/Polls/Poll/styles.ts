@@ -8,8 +8,7 @@ export const Container = styled.div`
   row-gap: 16px;
 
   /* background-color: #cecece; */
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: var(--box-shadow);
   padding: 32px;
   border-radius: 8px;
 `;
@@ -53,7 +52,7 @@ export const PollOptionsContainer = styled.ul`
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.1s all ease-in-out;
+    transition: var(--transition-medium);
 
     &:hover {
       opacity: 0.75;
