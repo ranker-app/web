@@ -1,49 +1,86 @@
 import Anchor from "@/components/atoms/Anchor";
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.article`
-  position: relative;
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  row-gap: 16px;
+  row-gap: var(--margin-2);
+  box-shadow: var(--box-shadow);
+  padding: var(--padding-4);
+  border-radius: var(--padding-1);
 
-  > header {
+  > div:first-child {
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    width: 100%;
+    row-gap: var(--margin-2);
   }
 `;
 
+export const LinkContainer = styled(Anchor).attrs(() => ({
+  styles: css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: var(--margin-2);
+    transition: var(--transition-medium);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  `,
+}))``;
+
 export const PublishedAtLabel = styled.span`
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.55);
   font-weight: 500;
   font-size: 14px;
 `;
 
-export const Title = styled.h1`
-  font-size: 48px;
+export const Title = styled.h2`
+  color: #fff;
 `;
 
-export const AuthorContainer = styled.div`
-  margin-top: 8px;
+export const CategoriesContainer = styled.div`
   display: flex;
-  align-items: center;
-  column-gap: 16px;
+  flex-wrap: wrap;
+  row-gap: 8px;
 
-  > div {
-    display: flex;
-    flex-direction: column;
+  > span {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 12px;
+  }
+`;
 
-    > span:first-child {
-      font-weight: 600;
+export const DescriptionContainer = styled.p`
+  color: rgba(0, 0, 0, 0.75);
+`;
+
+export const PollOptionsContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  > li {
+    background-color: var(--duolingo-green-color);
+    padding: 16px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-medium);
+
+    &:hover {
+      opacity: 0.75;
     }
   }
 `;
 
 export const HeroImage = styled(Image)`
   position: relative !important;
-  margin: 32px 0 0 0;
   border-radius: 8px;
 `;

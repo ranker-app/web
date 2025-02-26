@@ -1,42 +1,41 @@
-import Anchor from "@/components/atoms/Anchor";
-import { formatDate } from "@/utils/dates";
 import React from "react";
 import {
-  AuthorContainer,
   Container,
-  HeroImage,
+  DescriptionContainer,
+  PollOptionsContainer,
   PublishedAtLabel,
+  CategoriesContainer,
   Title,
+  HeroImage,
+  LinkContainer,
 } from "./styles";
-import Image from "next/image";
+import { formatDate } from "@/utils/dates";
+import Anchor from "@/components/atoms/Anchor";
 
-interface FullPollProps {
+interface PostItemsProps {
   poll: PollEntity;
 }
 
-const FullPoll: React.FC<FullPollProps> = (props) => {
+const FullPoll: React.FC<PostItemsProps> = (props) => {
   return (
     <Container>
-      {/* <header>
-        <Title>{props.post.title}</Title>
-        <PublishedAtLabel>
-          {formatDate(props.post.publishedAt)}
-        </PublishedAtLabel>
-        <AuthorContainer>
-          <Image
-            src={props.post.author.profileImage}
-            width={50}
-            height={50}
-            alt=""
-          />
-          <div>
-            <span>{props.post.author.name}</span>
-            <Anchor href={props.post.author.twitterProfile}>@Twitter</Anchor>
-          </div>
-        </AuthorContainer>
-      </header>
+      <LinkContainer href={`/poll/${props.poll.slug}`}>
+        <HeroImage src={props.poll.image} fill alt="" />
 
-      <HeroImage src={props.post.heroImage} fill alt="" /> */}
+        <PublishedAtLabel>{formatDate(props.poll.createDt)}</PublishedAtLabel>
+        <CategoriesContainer>
+          {props.poll.categories.map((c) => (
+            <span key={c.guid}>{c.name}</span>
+          ))}
+        </CategoriesContainer>
+        <DescriptionContainer>{props.poll.content}</DescriptionContainer>
+      </LinkContainer>
+
+      <PollOptionsContainer>
+        {props.poll.options.map((option) => (
+          <li key={option.guid}>{option.label}</li>
+        ))}
+      </PollOptionsContainer>
     </Container>
   );
 };
