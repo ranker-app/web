@@ -1,16 +1,14 @@
+import { formatDate } from "@/utils/dates";
 import React from "react";
 import {
+  CategoriesContainer,
   Container,
   DescriptionContainer,
-  PollOptionsContainer,
-  PublishedAtLabel,
-  CategoriesContainer,
-  Title,
   HeroImage,
   LinkContainer,
+  PollOptionsContainer,
+  PublishedAtLabel,
 } from "./styles";
-import { formatDate } from "@/utils/dates";
-import Anchor from "@/components/atoms/Anchor";
 
 interface PostItemsProps {
   poll: PollEntity;

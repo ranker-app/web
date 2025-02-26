@@ -1,5 +1,4 @@
 import { StyleParam } from "@/@types/General";
-import Link from "next/link";
 import styled from "styled-components";
 
 interface ContainerProps {
