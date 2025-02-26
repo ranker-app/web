@@ -7,6 +7,7 @@ import {
   CategoriesContainer,
   Title,
   HeroImage,
+  LinkContainer,
 } from "./styles";
 import { formatDate } from "@/utils/dates";
 import Anchor from "@/components/atoms/Anchor";
@@ -18,17 +19,17 @@ interface PostItemsProps {
 const Poll: React.FC<PostItemsProps> = (props) => {
   return (
     <Container>
-      {/* <Anchor href={`/polls/${props.poll.slug}`}></Anchor> */}
+      <LinkContainer href={`/poll/${props.poll.slug}`}>
+        <HeroImage src={props.poll.image} fill alt="" />
 
-      <HeroImage src={props.poll.image} fill alt="" />
-
-      <PublishedAtLabel>{formatDate(props.poll.createDt)}</PublishedAtLabel>
-      <CategoriesContainer>
-        {props.poll.categories.map((c) => (
-          <span key={c.guid}>{c.name}</span>
-        ))}
-      </CategoriesContainer>
-      <DescriptionContainer>{props.poll.content}</DescriptionContainer>
+        <PublishedAtLabel>{formatDate(props.poll.createDt)}</PublishedAtLabel>
+        <CategoriesContainer>
+          {props.poll.categories.map((c) => (
+            <span key={c.guid}>{c.name}</span>
+          ))}
+        </CategoriesContainer>
+        <DescriptionContainer>{props.poll.content}</DescriptionContainer>
+      </LinkContainer>
 
       <PollOptionsContainer>
         {props.poll.options.map((option) => (

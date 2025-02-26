@@ -1,18 +1,37 @@
+import Anchor from "@/components/atoms/Anchor";
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  row-gap: 16px;
+  row-gap: var(--margin-2);
+  box-shadow: var(--box-shadow);
+  padding: var(--padding-4);
+  border-radius: var(--padding-1);
 
-  /* background-color: #cecece; */
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  padding: 32px;
-  border-radius: 8px;
+  > div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: var(--margin-2);
+  }
 `;
+
+export const LinkContainer = styled(Anchor).attrs(() => ({
+  styles: css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: var(--margin-2);
+    transition: var(--transition-medium);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  `,
+}))``;
 
 export const PublishedAtLabel = styled.span`
   color: rgba(0, 0, 0, 0.55);
@@ -53,7 +72,7 @@ export const PollOptionsContainer = styled.ul`
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.1s all ease-in-out;
+    transition: var(--transition-medium);
 
     &:hover {
       opacity: 0.75;
@@ -63,6 +82,5 @@ export const PollOptionsContainer = styled.ul`
 
 export const HeroImage = styled(Image)`
   position: relative !important;
-  margin: 32px 0 0 0;
   border-radius: 8px;
 `;

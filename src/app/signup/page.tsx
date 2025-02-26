@@ -1,14 +1,14 @@
 "use client";
 
-import PollsFeed from "@/components/organisms/Polls/PollsFeed";
+import SignupForm from "@/components/organisms/SignupForm";
 import DefaultTemplate from "@/components/templates/DefaultTemplate";
 
-const HomePage = () => {
+const LoginPage = () => {
   return (
     <DefaultTemplate>
-      <PollsFeed />
+      <SignupForm />
     </DefaultTemplate>
   );
 };
 
-export default HomePage;
+export default LoginPage;
