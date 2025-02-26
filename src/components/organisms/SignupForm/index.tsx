@@ -16,7 +16,7 @@ const SignupForm: React.FC = () => {
   const [signup, setSignup] = useState<Signup>({
     name: "",
     email: "",
-    gender: "",
+    gender: "M",
     password: "",
     confirmPassword: "",
   });
@@ -24,6 +24,11 @@ const SignupForm: React.FC = () => {
   const { handleFormFieldChange } = useForm({ setState: setSignup });
 
   const doSignup = () => {
+    if (signup.password !== signup.confirmPassword) {
+      alert("Passwords must match !");
+      return;
+    }
+
     alert("Gonna login");
 
     console.log("Signups is ", signup);
@@ -74,6 +79,16 @@ const SignupForm: React.FC = () => {
               name="password"
               onChange={handleFormFieldChange}
               value={signup.password}
+            />
+          </fieldset>
+
+          <fieldset>
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              onChange={handleFormFieldChange}
+              value={signup.confirmPassword}
             />
           </fieldset>
 
