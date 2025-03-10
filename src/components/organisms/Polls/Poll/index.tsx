@@ -20,12 +20,12 @@ const Poll: React.FC<PostItemsProps> = (props) => {
   return (
     <Container>
       <LinkContainer href={`/poll/${props.poll.slug}`}>
-        <HeroImage src={props.poll.image} fill alt="" />
+        {/* <HeroImage src={props.poll.image} fill alt="" /> */}
 
         <PublishedAtLabel>{formatDate(props.poll.createDt)}</PublishedAtLabel>
         <CategoriesContainer>
           {props.poll.categories.map((c) => (
-            <span key={c.guid}>{c.name}</span>
+            <span key={c.id}>{c.name}</span>
           ))}
         </CategoriesContainer>
         <DescriptionContainer>{props.poll.content}</DescriptionContainer>
@@ -33,7 +33,7 @@ const Poll: React.FC<PostItemsProps> = (props) => {
 
       <PollOptionsContainer>
         {props.poll.options.map((option) => (
-          <li key={option.guid}>{option.label}</li>
+          <li key={option.id}>{option.content}</li>
         ))}
       </PollOptionsContainer>
     </Container>

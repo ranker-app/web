@@ -1,5 +1,5 @@
 interface DatabaseEntity {
-  guid: string;
+  id: number;
   createDt: string;
   updateDt: string;
 }
@@ -21,7 +21,7 @@ interface PollEntity extends DatabaseEntity {
 }
 
 interface PollOptionEntity extends DatabaseEntity {
-  label: string;
+  content: string;
 }
 
 interface CategoryEntity extends DatabaseEntity {
