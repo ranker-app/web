@@ -2,12 +2,18 @@ import React from "react";
 import { Container } from "./styles";
 import Navbar from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";
+import Loader from "@/components/atoms/Loader";
 
-const DefaultTemplate: React.FC<any> = (props) => {
+interface DefaultTemplateProps {
+  loading?: boolean;
+  children: any;
+}
+
+const DefaultTemplate: React.FC<DefaultTemplateProps> = (props) => {
   return (
     <Container>
       <Navbar />
-      <section>{props.children}</section>
+      <section>{props.loading ? <Loader /> : props.children}</section>
       <Footer />
     </Container>
   );

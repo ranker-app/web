@@ -18,8 +18,8 @@ const PostPage = () => {
   }, [params]);
 
   return (
-    <DefaultTemplate>
-      {!poll ? <Loader /> : <FullPoll poll={poll} />}
+    <DefaultTemplate loading={!poll}>
+      <FullPoll poll={poll as PollEntity} />
     </DefaultTemplate>
   );
 };
