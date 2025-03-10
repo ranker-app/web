@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Container, Content } from "./styles";
 import Anchor from "@/components/atoms/Anchor";
 import useForm from "@/hooks/useForm";
 import { Form } from "@/styles/Form";
+import { api } from "@/services/api.service";
+import swal from "sweetalert";
+import { useRouter } from "next/navigation";
 
 interface Login {
   email: string;
@@ -17,9 +20,22 @@ const LoginForm: React.FC = () => {
 
   const { handleFormFieldChange } = useForm({ setState: setLogin });
 
-  const doLogin = () => {
-    alert("Gonna login");
-  };
+  const router = useRouter();
+
+  const doLogin = useCallback(async () => {
+    try {
+      const {
+        data: { user, token },
+      } = await api.post("auth/login", login);
+
+      localStorage.setItem("USER", JSON.stringify(user));
+      localStorage.setItem("JWT_TOKEN", token);
+
+      router.push("/");
+    } catch (err: any) {
+      swal("Error", err.message || "Generic Error", "error");
+    }
+  }, [login, router]);
 
   return (
     <Container>
